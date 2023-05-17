@@ -1,0 +1,228 @@
+﻿@using CarPolice.Views
+@model CollectionsModels
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center" >Формирование акта</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="row" style="margin: 2rem 0rem 2rem 0rem ">
+            <div class="col-md-6">
+                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-8">
+                    @Html.LabelFor(model => model.id_officer, null, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-8">
+                        @Html.DropDownList("idOfficer", ViewBag.id_officer as SelectList, htmlAttributes: new { @class = "form-control col-4" })
+                        @Html.ValidationMessageFor(model => model.id_officer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-8">
+                    @Html.LabelFor(model => model.id_employee, null, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-8">
+                        @Html.DropDownList("idEmployee", ViewBag.id_employee as SelectList, htmlAttributes: new { @class = "form-control col-4" })
+                        @Html.ValidationMessageFor(model => model.id_employee, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div style="background: #c1d7ff; padding: 10px; border-radius:10px">
+                    <h3 style="text-align:center">Автомобиль</h3>
+
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.id_car, null, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("idCar", ViewBag.id_car as SelectList, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.id_car, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <hr />
+                    <h4 style="text-align:center">Создать новый</h4>*@
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.car1.body_no, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.car1.body_no, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.car1.body_no, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.car1.license_plate, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.car1.license_plate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.car1.license_plate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.car1.mark, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.car1.mark, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.car1.mark, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.car1.color, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.car1.color, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.car1.color, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.car1.engine_no, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.car1.engine_no, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.car1.engine_no, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.car1.pass_no, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.car1.pass_no, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.car1.pass_no, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div style="background: #c1d7ff; padding: 10px; border-radius:10px">
+                    <h3 style="text-align:center">Владелец</h3>
+
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.id_owner, null, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("idOwner", ViewBag.id_owner as SelectList, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.id_owner, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <hr />
+                    <h4 style="text-align:center">Создать нового</h4>*@
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.carOwner1.full_name, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.carOwner1.full_name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.carOwner1.full_name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.carOwner1.address, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.carOwner1.address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.carOwner1.address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.carOwner1.gender, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.carOwner1.gender, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.carOwner1.gender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.carOwner1.driver_license_no, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.carOwner1.driver_license_no, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.carOwner1.driver_license_no, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.carOwner1.DOB, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.carOwner1.DOB, new { htmlAttributes = new { @class = "form-control col-md-3", type = "datetime-local" } })
+                            @Html.ValidationMessageFor(model => model.carOwner1.DOB, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4">
+                    <div style="background: #c1d7ff; padding: 10px; border-radius:10px">
+                        <h4 style="text-align:center">Технический осмотр</h4>
+                        
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.stagesTI.noise, htmlAttributes: new { @class = "control-label col-md-8" })
+                            <div class="col-md-4">
+                                @Html.CheckBoxFor(model => model.stagesTI.noise, false)
+                                @Html.ValidationMessageFor(model => model.stagesTI.noise, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.stagesTI.light, htmlAttributes: new { @class = "control-label col-md-8" })
+                            <div class="col-md-4">
+                                @Html.CheckBoxFor(model => model.stagesTI.light, false)
+                                @Html.ValidationMessageFor(model => model.stagesTI.light, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.stagesTI.pendant, htmlAttributes: new { @class = "control-label col-md-8" })
+                            <div class="col-md-4">
+                                @Html.CheckBoxFor(model => model.stagesTI.pendant, false)
+                                @Html.ValidationMessageFor(model => model.stagesTI.pendant, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.stagesTI.brake, htmlAttributes: new { @class = "control-label col-md-8" })
+                            <div class="col-md-4">
+                                @Html.CheckBoxFor(model => model.stagesTI.brake, false)
+                                @Html.ValidationMessageFor(model => model.stagesTI.brake, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.stagesTI.body, htmlAttributes: new { @class = "control-label col-md-8" })
+                            <div class="col-md-4">
+                                @Html.CheckBoxFor(model => model.stagesTI.body, false)
+                                @Html.ValidationMessageFor(model => model.stagesTI.body, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.technicalInspection1.Date, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.technicalInspection1.Date, new { htmlAttributes = new { @class = "form-control col-md-3", type = "datetime-local" } })
+                                @Html.ValidationMessageFor(model => model.technicalInspection1.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+        <div class="row">
+            <div class="col-md-auto" style="display: flex; justify-content: center;">
+                <input type="submit" value="Зафиксировать" class="btn btn-primary btn-lg" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

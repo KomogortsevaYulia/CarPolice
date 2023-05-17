@@ -1,0 +1,24 @@
+﻿@model PagedList.IPagedList<Web1.Models.Clients>
+    @using PagedList.Mvc;
+
+    @{
+        ViewBag.Title = "Home Page";
+    }
+
+    <div>
+        <h1>Поиск акта</h1>
+
+        <div class=”col-auto”>
+            <form asp-action=”Index” method=”get”>
+                <div class=”form-actions no-color row”>
+                    <div class=”input-group mb-3”>
+                        <input type=”text” id=”SearchString” name=”SearchString”
+                               class=”form-control” placeholder=”Фамилия/Имя/Отчество/Должность” aria-label=”Введите ФИО”>
+                        <input type=”submit” value=”Поиск” class=”btn btn-outlineprimary” />
+                    </div>
+                </div>
+                23
+            </form>
+        </div>
+    </div>
+

@@ -1,0 +1,114 @@
+﻿@model CarPolice.Models.results
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Акт технического осмотра</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.body_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.body_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.license_plate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.license_plate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.mark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.mark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.engine_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.engine_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Car.pass_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Car.pass_no)
+        </dd>
+
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.CarOwner.full_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarOwner.full_name)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyEmployee.full_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyEmployee.full_name)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.Officer.full_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Officer.full_name)
+        </dd>
+        <hr />
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnicalInspection.conclusion)
+        </dt>
+
+        @if (Model.TechnicalInspection.conclusion < 5)
+        {
+            <dd>
+                ТО не пройдено
+            </dd>
+        }
+        else
+        {
+            <dd>
+                ТО пройдено
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnicalInspection.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnicalInspection.Date)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</p>

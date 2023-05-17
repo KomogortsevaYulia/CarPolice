@@ -1,0 +1,126 @@
+﻿@model IEnumerable<CarPolice.Models.results>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Акты</h2>
+<div class=" row" style="margin-bottom:20px">
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink("Формирование нового акта", "Create")
+        </p>
+    </div>
+    <div class="col-md-6">
+        <form asp-action="Index" method="get">
+            <div class="form-actions no-color row">
+                <div class="input-group mb-3">
+                    <div class="col-md-10">
+                        <input type="text" id="SearchString" name="SearchString" class="form-control" placeholder="Номер кузова" aria-label="Введите ФИО">
+                    </div> <div class="col-md-2">
+    <input type="submit" value="Поиск" class="btn btn-primary" />
+</div>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+        @Html.ActionLink("Вернуться к полному списку", "Index", null, new { @class = "btn btn-outline-primary" })
+    </div>
+</div>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.body_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.license_plate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.mark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.engine_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.pass_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarOwner.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyEmployee.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Officer.full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechnicalInspection.conclusion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechnicalInspection.Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr @{if (item.TechnicalInspection.conclusion == 5) { <text> style="background: #b0efb8 ; " </text>  }}>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.body_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.license_plate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.engine_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.pass_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarOwner.full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyEmployee.full_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Officer.full_name)
+            </td>
+
+            @if (item.TechnicalInspection.conclusion < 5)
+            {
+                <td>
+                    ТО не пройдено
+                </td>
+            }
+            else
+            {
+                <td>
+                    ТО пройдено
+                </td>
+            }
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TechnicalInspection.Date)
+            </td>
+            <td>
+
+                @Html.ActionLink("Детали", "Details", new { id = item.id })
+
+            </td>
+        </tr>
+    }
+
+</table>
